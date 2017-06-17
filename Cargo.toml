@@ -1,0 +1,6 @@
+[package]
+name = "sumitaru"
+version = "0.1.0"
+authors = ["soba1104 <shiba@rvm.jp>"]
+
+[dependencies]
