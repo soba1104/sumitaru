@@ -1,5 +1,6 @@
-use std::net::{IpAddr, SocketAddr};
+use std::net::{IpAddr, SocketAddr, TcpListener, TcpStream};
 use std::str::FromStr;
+use std::io::{Read, Write};
 
 use error::Error;
 
@@ -20,4 +21,17 @@ impl Server {
         };
         Ok(server)
     }
+
+    pub fn run(&self) -> Result<(), Error> {
+        let listener = try!(TcpListener::bind(self.addr));
+        let (mut socket, _addr) = try!(listener.accept());
+        echo(&mut socket)
+    }
+}
+
+fn echo(socket: &mut TcpStream) -> Result<(), Error> {
+    let mut buffer = [0; 10];
+    try!(socket.read(&mut buffer));
+    try!(socket.write(&buffer));
+    Ok(())
 }

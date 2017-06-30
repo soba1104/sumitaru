@@ -27,5 +27,6 @@ fn main() {
     let port = args[2].parse::<u16>().unwrap();
 
     let server = Server::new(host, port).unwrap_or_else(|e| fatal(&e));
-    println!("Hello, world! {:?}", server);
+    println!("server: {:?}", server);
+    server.run().unwrap_or_else(|e| fatal(&e));
 }
