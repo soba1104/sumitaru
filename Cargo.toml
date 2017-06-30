@@ -4,3 +4,11 @@ version = "0.1.0"
 authors = ["soba1104 <shiba@rvm.jp>"]
 
 [dependencies]
+clippy = {version = "*", optional = true}
+
+[features]
+default = []
+
+[[bin]]
+name = "sumitaru"
+path = "src/main.rs"
