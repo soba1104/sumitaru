@@ -4,7 +4,9 @@ version = "0.1.0"
 authors = ["soba1104 <shiba@rvm.jp>"]
 
 [dependencies]
-clippy = {version = "*", optional = true}
+log = "0.3.8"
+env_logger = "0.4.3"
+quick-error = "1.2.0"
 
 [features]
 default = []

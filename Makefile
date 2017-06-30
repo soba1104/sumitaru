@@ -1,8 +1,12 @@
+HOST=127.0.0.1
+PORT=3456
+
 compile:
-	@cargo +nightly build --features clippy
+	@cargo +nightly clippy
+	@cargo build
 
 run:
-	@cargo +nightly run --features clippy
+	@cargo run ${HOST} ${PORT}
 
 clean:
 	@cargo clean
